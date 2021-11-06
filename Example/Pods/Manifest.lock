@@ -1,0 +1,23 @@
+PODS:
+  - KeychainAccess (4.2.2)
+  - RedSwift (0.1.0):
+    - KeychainAccess
+
+DEPENDENCIES:
+  - RedSwift (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - KeychainAccess
+
+EXTERNAL SOURCES:
+  RedSwift:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
+  RedSwift: c9716664b0c42ec6222f73bb98da828d7afe548b
+
+PODFILE CHECKSUM: a770a4764655945b9712720c8c9b72d7cf13a2eb
+
+COCOAPODS: 1.10.1

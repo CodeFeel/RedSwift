@@ -1,0 +1,6 @@
+use_frameworks!
+target 'Sample' do
+  pod 'RedSwift', :path => '../'
+  
+  
+end
