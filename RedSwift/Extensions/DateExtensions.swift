@@ -164,6 +164,7 @@ public extension Date {
         }
     }
     
+    /// 纳秒
     var nanosecond: Int {
         get {
             return Calendar.current.component(.nanosecond, from: self)
@@ -181,6 +182,7 @@ public extension Date {
         }
     }
     
+    /// 毫秒
     var millisecond: Int {
         get {
             return Calendar.current.component(.nanosecond, from: self) / 1000000
@@ -238,7 +240,6 @@ public extension Date {
     }
     
     static func date(_ dateStr: String, formatter: String = "yyyy-MM-dd HH:mm:ss") -> Date? {
-
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = formatter
         dateFormatter.locale = Locale.current
@@ -246,11 +247,28 @@ public extension Date {
     }
     
     /// 获取当前时间戳 精确到毫秒
-    static func getCurrentTimestamp() -> String {
+    static func getMilliTimestamp() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd HH:mm:ss SSS"
         let datetime = CLongLong(round(Date().timeIntervalSince1970 * 1000))
         return "\(datetime)"
+    }
+    
+    /// 获取当前时间戳 精确到秒
+    static func getSecTimestamp() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-dd HH:mm:ss"
+        let datetime = CLongLong(round(Date().timeIntervalSince1970))
+        return "\(datetime)"
+    }
+    
+    /// 如果13位时间戳，格式要加上毫秒
+    static func timeIntervalToTime(_ timestamp: Double, _ formatter: String = "yyyy-MM-dd HH:mm:ss") -> String {
+        let date:Date = Date.init(timeIntervalSince1970: timestamp)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = formatter
+        dateFormatter.locale = Locale.current
+        return dateFormatter.string(from: date as Date)
     }
        
     /// 第几天
